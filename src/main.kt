@@ -10,7 +10,7 @@ fun main() {
     println("Nome: ${sergio.nome}")
     println("CPF: ${sergio.cpf}")
     println("Salario: ${sergio.salario}")
-    println("Bonificação: ${sergio.bonificacao()}")
+    println("Bonificação: ${sergio.bonificacao}")
     println()
 
     val fran = Gerente(
@@ -24,9 +24,30 @@ fun main() {
     println("Nome: ${fran.nome}")
     println("CPF: ${fran.cpf}")
     println("Salario: ${fran.salario}")
-    println("Bonificação: ${fran.bonificacao()}")
+    println("Bonificação: ${fran.bonificacao}")
 
     if (fran.autenticacao(senha = 1234)){
+        println("Autenticado com sucesso")
+    } else {
+        println("Não autenticado")
+    }
+    println()
+
+    val gui = Diretor(
+        nome = "Gui",
+        cpf = "333.444.555-66",
+        salario = 4000.0,
+        senha = 4321,
+        plr = 200.0
+    )
+
+    println("Nome: ${gui.nome}")
+    println("CPF: ${gui.cpf}")
+    println("Salario: ${gui.salario}")
+    println("Bonificação: ${gui.bonificacao}")
+    println("PLR: ${gui.plr}")
+
+    if (gui.autenticacao(senha = 4321)){
         println("Autenticado com sucesso")
     } else {
         println("Não autenticado")
