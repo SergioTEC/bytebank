@@ -52,4 +52,20 @@ fun main() {
     } else {
         println("Não autenticado")
     }
+
+    val maria = Analista (
+        nome = "Maria",
+        cpf = "444.555.666-77",
+        salario = 3000.0
+    )
+
+    val calculadora = CalculadoraBonificacao()
+    calculadora.registra(sergio)
+    calculadora.registra(fran)
+    calculadora.registra(gui)
+    calculadora.registra(maria)
+
+    println("Total de bonificação: ${calculadora.total}")
+
+
 }
