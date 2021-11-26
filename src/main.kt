@@ -1,71 +1,35 @@
 fun main() {
     println("Bem vindo ao Bytebank")
 
-    val sergio = Funcionario(
-        nome = "Sergio",
-        cpf = "111.222.333-44",
-        salario = 1000.0
+    val contaCorrente = ContaCorrente(
+        titular = "Sergio",
+        numero = 8
     )
 
-    println("Nome: ${sergio.nome}")
-    println("CPF: ${sergio.cpf}")
-    println("Salario: ${sergio.salario}")
-    println("Bonificação: ${sergio.bonificacao}")
-    println()
-
-    val fran = Gerente(
-        nome = "Fran",
-        cpf = "222.333.444-55",
-        salario = 2000.0,
-        senha = 1234
-
+    val contaPoupanca = ContaPoupanca(
+        titular = "Heitor",
+        numero = 10
     )
 
-    println("Nome: ${fran.nome}")
-    println("CPF: ${fran.cpf}")
-    println("Salario: ${fran.salario}")
-    println("Bonificação: ${fran.bonificacao}")
+    contaCorrente.deposita(valor = 1000.0)
+    contaPoupanca.deposita(valor = 1000.0)
 
-    if (fran.autenticacao(senha = 1234)){
-        println("Autenticado com sucesso")
-    } else {
-        println("Não autenticado")
-    }
-    println()
+    println("Saldo da conta Corrente: ${contaCorrente.saldo}")
+    println("Saldo da conta Poupança: ${contaPoupanca.saldo}")
 
-    val gui = Diretor(
-        nome = "Gui",
-        cpf = "333.444.555-66",
-        salario = 4000.0,
-        senha = 4321,
-        plr = 200.0
-    )
+    contaCorrente.saca(valor = 100.0)
+    contaPoupanca.saca(valor = 200.0)
 
-    println("Nome: ${gui.nome}")
-    println("CPF: ${gui.cpf}")
-    println("Salario: ${gui.salario}")
-    println("Bonificação: ${gui.bonificacao}")
-    println("PLR: ${gui.plr}")
+    println("Após o saque, o saldo da conta Corrente é: ${contaCorrente.saldo}")
+    println("Após o saque, o saldo da conta Poupança é: ${contaPoupanca.saldo}")
 
-    if (gui.autenticacao(senha = 4321)){
-        println("Autenticado com sucesso")
-    } else {
-        println("Não autenticado")
-    }
+    contaCorrente.transfere(valor = 100.0, destino = contaPoupanca)
+    println("Após a transferência da conta Corrente para a conta Poupança o saldo da conta Corrente é: ${contaCorrente.saldo} ")
 
-    val maria = Analista (
-        nome = "Maria",
-        cpf = "444.555.666-77",
-        salario = 3000.0
-    )
+    contaPoupanca.transfere(valor = 200.0, destino = contaCorrente)
+    println("Após a transferência da conta Poupança para a conta Corrente o saldo da conta Poupança é: ${contaPoupanca.saldo}")
 
-    val calculadora = CalculadoraBonificacao()
-    calculadora.registra(sergio)
-    calculadora.registra(fran)
-    calculadora.registra(gui)
-    calculadora.registra(maria)
-
-    println("Total de bonificação: ${calculadora.total}")
-
-
+    println("""Após a transferência de ambas as contas 
+        |o saldo da conta Corrente ficou: ${contaCorrente.saldo} 
+        |e o da conta Poupança ficou: ${contaPoupanca.saldo}""".trimMargin())
 }
