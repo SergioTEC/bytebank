@@ -24,7 +24,7 @@ fun testaFuncionario() {
     println("Salario: ${fran.salario}")
     println("Bonificação: ${fran.bonificacao}")
 
-    if (fran.autenticacao(senha = 1234)) {
+    if (fran.autentica(senha = 1234)) {
         println("Autenticado com sucesso")
     } else {
         println("Não autenticado")
@@ -45,7 +45,7 @@ fun testaFuncionario() {
     println("Bonificação: ${gui.bonificacao}")
     println("PLR: ${gui.plr}")
 
-    if (gui.autenticacao(senha = 4321)) {
+    if (gui.autentica(senha = 4321)) {
         println("Autenticado com sucesso")
     } else {
         println("Não autenticado")
