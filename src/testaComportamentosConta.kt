@@ -1,6 +1,6 @@
 fun testaComportamentosConta() {
 
-    val contaSergio = ContaCorrente(titular = "Alex", numero = 8)
+    val contaSergio = ContaCorrente(titular = "Sergio", numero = 8)
     contaSergio.deposita(-100.0)
 
 
