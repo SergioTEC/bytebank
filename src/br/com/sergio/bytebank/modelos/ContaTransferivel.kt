@@ -1,3 +1,4 @@
+package br.com.sergio.bytebank.modelos
 abstract class ContaTransferivel(
     titular: String,
     numero: Int

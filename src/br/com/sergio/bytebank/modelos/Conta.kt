@@ -1,3 +1,5 @@
+package br.com.sergio.bytebank.modelos
+
 abstract class Conta(
     var titular: String,
     val numero: Int

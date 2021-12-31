@@ -1,3 +1,5 @@
+package br.com.sergio.bytebank.modelos
+
 abstract class Funcionario(
     val nome: String,
     val cpf: String,

@@ -1,3 +1,5 @@
+package br.com.sergio.bytebank.modelos
+
 class ContaCorrente(
     titular: String,
     numero: Int

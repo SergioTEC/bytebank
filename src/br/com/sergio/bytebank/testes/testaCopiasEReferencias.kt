@@ -1,3 +1,6 @@
+import br.com.sergio.bytebank.modelos.ContaCorrente
+import br.com.sergio.bytebank.modelos.ContaPoupanca
+
 fun testaCopiasEReferencias() {
     val numeroX = 10
     var numeroY = numeroX

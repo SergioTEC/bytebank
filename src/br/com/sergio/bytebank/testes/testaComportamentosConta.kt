@@ -1,3 +1,6 @@
+import br.com.sergio.bytebank.modelos.ContaCorrente
+import br.com.sergio.bytebank.modelos.ContaPoupanca
+
 fun testaComportamentosConta() {
 
     val contaSergio = ContaCorrente(titular = "Sergio", numero = 8)

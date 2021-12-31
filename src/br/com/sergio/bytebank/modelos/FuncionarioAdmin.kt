@@ -1,3 +1,5 @@
+package br.com.sergio.bytebank.modelos
+
 abstract class FuncionarioAdmin(
     nome: String,
     cpf: String,
@@ -7,7 +9,7 @@ abstract class FuncionarioAdmin(
     nome = nome,
     cpf = cpf,
     salario = salario
-), Autenticavel{
+), Autenticavel {
     override fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
             return true

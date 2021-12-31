@@ -1,3 +1,5 @@
+import br.com.sergio.bytebank.modelos.*
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         nome = "Sergio",

@@ -1,3 +1,7 @@
+import br.com.sergio.bytebank.modelos.ContaCorrente
+import br.com.sergio.bytebank.modelos.ContaPoupanca
+import br.com.sergio.bytebank.modelos.ContaSalario
+
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
         titular = "Sergio",
@@ -45,6 +49,6 @@ fun testaContasDiferentes() {
     )
     contaCorrente.transfere(100.0, contaSalario)
 
-    println("saldo Conta corrente após transferir para salário: ${contaCorrente.saldo}")
-    println("saldo Conta salário após receber transferência: ${contaSalario.saldo}")
+    println("saldo br.com.sergio.bytebank.modelos.Conta corrente após transferir para salário: ${contaCorrente.saldo}")
+    println("saldo br.com.sergio.bytebank.modelos.Conta salário após receber transferência: ${contaSalario.saldo}")
 }

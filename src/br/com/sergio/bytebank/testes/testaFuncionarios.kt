@@ -1,3 +1,5 @@
+import br.com.sergio.bytebank.modelos.*
+
 fun testaFuncionario() {
 
     val sergio = Auxiliar(

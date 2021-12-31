@@ -1,3 +1,5 @@
+package br.com.sergio.bytebank.modelos
+
 class CalculadoraBonificacao {
     var total : Double = 0.0
         private set
