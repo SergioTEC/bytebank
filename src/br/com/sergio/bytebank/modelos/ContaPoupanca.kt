@@ -1,7 +1,7 @@
 package br.com.sergio.bytebank.modelos
 
 class ContaPoupanca(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : ContaTransferivel(
     titular = titular,

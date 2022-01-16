@@ -1,22 +1,41 @@
+import br.com.sergio.bytebank.modelos.Cliente
 import br.com.sergio.bytebank.modelos.ContaCorrente
 import br.com.sergio.bytebank.modelos.ContaPoupanca
 import br.com.sergio.bytebank.modelos.ContaSalario
 
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
-        titular = "Sergio",
-        numero = 8
+        titular = Cliente(
+            nome = "Sergio",
+            cpf = "123.234.345-44",
+            senha = 1
+        ),
+        numero = 1000
     )
 
     val contaPoupanca = ContaPoupanca(
-        titular = "Heitor",
+        titular = Cliente(
+            nome = "Heitor",
+            cpf = "",
+            senha = 2
+        ),
         numero = 10
     )
 
     val contaSalario = ContaSalario(
-        titular = "Gui",
+        titular = Cliente(
+            nome = "Gui",
+            cpf = "",
+            senha = 3
+        ),
         numero = 1
     )
+
+    println("Titular")
+    println("Nome titular: ${contaCorrente.titular.nome}")
+    println("CPF: ${contaCorrente.titular.cpf}")
+    println("Numero da conta: ${contaCorrente.numero}")
+    println()
 
     contaCorrente.deposita(valor = 1000.0)
     contaPoupanca.deposita(valor = 1000.0)

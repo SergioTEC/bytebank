@@ -1,13 +1,19 @@
+import br.com.sergio.bytebank.modelos.Cliente
 import br.com.sergio.bytebank.modelos.ContaCorrente
 import br.com.sergio.bytebank.modelos.ContaPoupanca
+import java.awt.datatransfer.ClipboardOwner
 
 fun testaComportamentosConta() {
 
-    val contaSergio = ContaCorrente(titular = "Sergio", numero = 8)
+    val sergio = Cliente(nome = "Sergio", cpf = "", senha = 1234 )
+
+    val contaSergio = ContaCorrente(titular = sergio, numero = 1)
     contaSergio.deposita(-100.0)
 
 
-    val contaFran = ContaPoupanca(titular = "Fran", numero = 2)
+    val fran = Cliente(nome = "Fran", cpf = "", senha = 4321)
+
+    val contaFran = ContaPoupanca(titular = fran, numero = 2)
     contaFran.deposita(200.0)
 
     println(contaFran.titular)
