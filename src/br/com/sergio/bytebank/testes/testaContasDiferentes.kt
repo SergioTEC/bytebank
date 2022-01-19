@@ -1,14 +1,14 @@
-import br.com.sergio.bytebank.modelos.Cliente
-import br.com.sergio.bytebank.modelos.ContaCorrente
-import br.com.sergio.bytebank.modelos.ContaPoupanca
-import br.com.sergio.bytebank.modelos.ContaSalario
+import br.com.sergio.bytebank.modelos.*
 
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
         titular = Cliente(
             nome = "Sergio",
             cpf = "123.234.345-44",
-            senha = 1
+            senha = 1,
+            endereco = Endereco(
+                estado = "Santa Catarina"
+            )
         ),
         numero = 1000
     )
@@ -35,6 +35,7 @@ fun testaContasDiferentes() {
     println("Nome titular: ${contaCorrente.titular.nome}")
     println("CPF: ${contaCorrente.titular.cpf}")
     println("Numero da conta: ${contaCorrente.numero}")
+    println("Estado do titular: ${contaCorrente.titular.endereco.estado}")
     println()
 
     contaCorrente.deposita(valor = 1000.0)
@@ -68,6 +69,6 @@ fun testaContasDiferentes() {
     )
     contaCorrente.transfere(100.0, contaSalario)
 
-    println("saldo br.com.sergio.bytebank.modelos.Conta corrente após transferir para salário: ${contaCorrente.saldo}")
-    println("saldo br.com.sergio.bytebank.modelos.Conta salário após receber transferência: ${contaSalario.saldo}")
+    println("saldo Conta corrente após transferir para salário: ${contaCorrente.saldo}")
+    println("saldo Conta salário após receber transferência: ${contaSalario.saldo}")
 }
