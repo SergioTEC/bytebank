@@ -7,6 +7,15 @@ abstract class Conta(
     var saldo = 0.0
         protected set
 
+    companion object Contador{
+        var totalContas = 0
+            private set
+    }
+
+    init {
+        totalContas++
+    }
+
     fun deposita(valor: Double) {
         if (valor > 0) {
             this.saldo += valor
