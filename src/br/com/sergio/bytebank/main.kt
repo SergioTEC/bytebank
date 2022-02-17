@@ -1,14 +1,50 @@
-import br.com.sergio.bytebank.modelos.Endereco
+import kotlin.ClassCastException
 
 fun main() {
-    val endereco = Endereco(logradouro = "Rua Treze de Maio", numero = 43, bairro = "Vila Europa", complemento = "Ap", cep = "94027")
-    val novoEndereco = Endereco(logradouro = "Rua Treze de Maio", numero = 43, bairro = "Vila Europa", complemento = "Ap", cep = "94027")
+    println("Inicio main")
+    val entrada: String = "1.0"
 
-    println(endereco.equals(novoEndereco))
+    val valorRecebido: Double? = try {
+        entrada.toDouble()
+    }catch (e: NumberFormatException){
+        println("Problema na conversão")
+        e.printStackTrace()
+        null
+    }
+    val valorComTaxa: Double? = if(valorRecebido != null)
+        valorRecebido + 0.1
+    else{
+        null
+    }
 
-    println(endereco.toString())
-    println(novoEndereco)
+    if(valorComTaxa != null){
+        println("Valor recebido: $valorComTaxa")
+    }else{
+        println("Valor invalido")
+    }
 
-    println(endereco.hashCode())
-    println(novoEndereco.hashCode())
+
+    funcao1()
+    println("Fim main")
+}
+
+fun funcao1() {
+    println("Inicio funcao1")
+    try {
+        funcao2()
+    } catch (e: ClassCastException) {
+        e.printStackTrace()
+        println("ClassCastException foi Identificada")
+    }
+    println("Fim funcao1")
+}
+
+fun funcao2() {
+    println("Inicio funcao2")
+    for (i in 1..5) {
+        println(i)
+//        val endereco = Any()
+//        endereco as Endereco
+    }
+    println("Fim funcao2")
 }
