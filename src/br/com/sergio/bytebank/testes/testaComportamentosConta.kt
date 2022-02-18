@@ -1,7 +1,7 @@
+import br.com.sergio.bytebank.exceptions.SaldoInsuficienteException
 import br.com.sergio.bytebank.modelos.Cliente
 import br.com.sergio.bytebank.modelos.ContaCorrente
 import br.com.sergio.bytebank.modelos.ContaPoupanca
-import java.awt.datatransfer.ClipboardOwner
 
 fun testaComportamentosConta() {
 
@@ -43,12 +43,14 @@ fun testaComportamentosConta() {
 
     println("Transferencia da conta da Fran para o Sergio")
 
-    if (contaFran.transfere(100.0, contaSergio)) {
+    try {
+        contaFran.transfere(destino = contaSergio, valor = 100.0)
         println("Transferencia sucedida")
-    } else {
+    } catch(e: SaldoInsuficienteException){
         println("Falha na transferencia")
+        println("Saldo insuficiente")
+        e.printStackTrace()
     }
-
     print("Saldo Sergio: ")
     println(contaSergio.saldo)
     print("Saldo Fran: ")
