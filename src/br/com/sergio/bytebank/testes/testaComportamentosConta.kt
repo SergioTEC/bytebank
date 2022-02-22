@@ -5,16 +5,16 @@ import br.com.sergio.bytebank.modelos.ContaPoupanca
 
 fun testaComportamentosConta() {
 
-    val sergio = Cliente(nome = "Sergio", cpf = "", senha = 1234 )
+    val sergio = Cliente(nome = "Sergio", cpf = "", senha = 1234)
 
     val contaSergio = ContaCorrente(titular = sergio, numero = 1)
-    contaSergio.deposita(-100.0)
+    contaSergio.deposita(valor = -100.0)
 
 
     val fran = Cliente(nome = "Fran", cpf = "", senha = 4321)
 
     val contaFran = ContaPoupanca(titular = fran, numero = 2)
-    contaFran.deposita(200.0)
+    contaFran.deposita(valor = 200.0)
 
     println(contaFran.titular)
     println(contaFran.numero)
@@ -46,7 +46,7 @@ fun testaComportamentosConta() {
     try {
         contaFran.transfere(destino = contaSergio, valor = 100.0)
         println("Transferencia sucedida")
-    } catch(e: SaldoInsuficienteException){
+    } catch (e: SaldoInsuficienteException) {
         println("Falha na transferencia")
         println("Saldo insuficiente")
         e.printStackTrace()

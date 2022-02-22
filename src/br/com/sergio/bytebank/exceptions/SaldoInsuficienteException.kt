@@ -1,3 +1,5 @@
 package br.com.sergio.bytebank.exceptions
 
-class SaldoInsuficienteException : Exception("Saldo insuficiente")
+class SaldoInsuficienteException(
+    mensagem: String = "O Saldo é insuficiente"
+) : Exception(mensagem)

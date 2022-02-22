@@ -10,8 +10,6 @@ class Auxiliar(
     salario = salario
 ) {
     override val bonificacao: Double
-        get() {
-            return salario * 0.05
-        }
+        get() = salario * 0.05
 }
 

@@ -46,6 +46,4 @@ class Endereco (
         result = 31 * result + complemento.hashCode()
         return result
     }
-
-
 }
