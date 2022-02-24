@@ -1,27 +1,20 @@
-import br.com.sergio.bytebank.exceptions.SaldoInsuficienteException
+import br.com.sergio.bytebank.modelos.Endereco
 
 fun main() {
-    println("Inicio main")
-    testaComportamentosConta()
-    println("Fim main")
+    var enderecoNulo: Endereco? = Endereco(logradouro = "Rua São João", complemento = "Casa")
+    val logradouroNovo: String? = enderecoNulo?.logradouro
+    enderecoNulo?.let { endereco: Endereco ->
+        println(endereco.logradouro.length)
+        val tamanhoComplemento: Int =
+            endereco.complemento?.length ?: throw IllegalStateException("Complemento não pode estar vazio")
+        println(tamanhoComplemento)
+    }
+// exemplo de Safe Cast
+//    teste("")
+//    teste(1)
 }
 
-fun funcao1() {
-    println("Inicio funcao1")
-    try {
-        funcao2()
-    } catch (e: SaldoInsuficienteException) {
-        e.printStackTrace()
-        println("SaldoInsuficienteException foi Identificada")
-    }
-    println("Fim funcao1")
-}
-
-fun funcao2() {
-    println("Inicio funcao2")
-    for (i in 1..5) {
-        println(i)
-        throw SaldoInsuficienteException()
-    }
-    println("Fim funcao2")
-}
+//fun teste(valor: Any){
+//    val numero: Int? = valor as? Int
+//    println(numero)
+//}
