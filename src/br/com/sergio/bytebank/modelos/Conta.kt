@@ -1,11 +1,12 @@
 package br.com.sergio.bytebank.modelos
 
+import br.com.sergio.bytebank.exceptions.FalhaAutenticacaoException
 import br.com.sergio.bytebank.exceptions.SaldoInsuficienteException
 
 abstract class Conta(
     var titular: Cliente,
     val numero: Int
-){
+) : Autenticavel {
     var saldo = 0.0
         protected set
 
@@ -19,6 +20,10 @@ abstract class Conta(
         totalContas++
     }
 
+    override fun autentica(senha: Int): Boolean {
+        return titular.autentica(senha)
+    }
+
     fun deposita(valor: Double) {
         if (valor > 0) {
             this.saldo += valor
@@ -27,9 +32,12 @@ abstract class Conta(
 
     abstract fun saca(valor: Double)
 
-    fun transfere(valor: Double, destino: Conta) {
+    fun transfere(valor: Double, destino: Conta, senha: Int) {
         if (saldo < valor) {
-            throw SaldoInsuficienteException()
+            throw SaldoInsuficienteException(mensagem = "Saldo insuficiente, Saldo atual: $saldo, valor a ser transferido: $valor")
+        }
+        if (!autentica(senha)){
+            throw FalhaAutenticacaoException()
         }
         saldo -= valor
         destino.deposita(valor)
