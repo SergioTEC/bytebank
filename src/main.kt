@@ -4,40 +4,82 @@ fun main() {
     var contaAlex = Conta()
     contaAlex.titular = "Alex"
     contaAlex.numeroConta = 1000
-    contaAlex.saldo = 100.0
+    contaAlex.setSaldo(100.0)
 
     var contaFran = Conta()
     contaFran.titular = "Fran"
     contaFran.numeroConta = 1001
-    contaFran.saldo = 200.0
+    contaFran.setSaldo(200.0)
 
     println(contaAlex.titular)
     println(contaAlex.numeroConta)
-    println(contaAlex.saldo)
+    println(contaAlex.getSaldo())
     println()
 
     println(contaFran.titular)
     println(contaFran.numeroConta)
-    println(contaFran.saldo)
+    println(contaFran.getSaldo())
 
-    println("Depositando na conta do Alex")
-    deposita(contaAlex, 50.0)
-    println(contaAlex.saldo)
-
-    println("Depositando na conta da Fran")
-    deposita(contaFran, 100.0)
-    println(contaFran.saldo)
-
-}
-
-fun deposita(conta: Conta, valor: Double){
-    conta.saldo += valor
+//    println("Depositando na conta do Alex")
+//    contaAlex.deposita(50.0)
+//    println(contaAlex.getSaldo())
+//
+//    println("Depositando na conta da Fran")
+//    contaFran.deposita(100.0)
+//    println(contaFran.getSaldo())
+//
+//    println("Sacando na conta do Alex")
+//    contaAlex.saca(150.0)
+//    println(contaAlex.getSaldo())
+//
+//    println("Sacando na conta da Fran")
+//    contaFran.saca(50.0)
+//    println(contaFran.getSaldo())
+//
+//    println("Transferindo para a conta do Alex")
+//    if (contaFran.transfere(300.0, contaAlex)) {
+//        println("Transferência sucedida")
+//    } else {
+//        println("Transferência mal sucedida")
+//    }
+//
+//    println(contaFran.getSaldo())
+//    println(contaAlex.getSaldo())
 }
 
 class Conta {
     var titular = ""
     var numeroConta = 0
-    var saldo = 0.0
+    private var saldo = 0.0
+
+    fun deposita(valor: Double) {
+        this.saldo += valor
+    }
+
+    fun saca(valor: Double) {
+        if (saldo >= valor) {
+            this.saldo -= valor
+        }
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.deposita(valor)
+            return true
+        }
+        return false
+    }
+
+    fun getSaldo(): Double{
+        return saldo
+    }
+
+    fun setSaldo(valor: Double){
+        if (valor > 0){
+            saldo = valor
+        }
+    }
 }
 
 fun testaCopiasEReferencias() {
