@@ -1,59 +1,59 @@
 fun main() {
     println("Bem vindo ao Bytebank")
 
-    var contaAlex = Conta()
-    contaAlex.titular = "Alex"
-    contaAlex.numeroConta = 1000
-    contaAlex.setSaldo(100.0)
+    var contaAlex = Conta(titular = "Alex", numeroConta = 1000)
+    contaAlex.deposita(100.0)
 
-    var contaFran = Conta()
-    contaFran.titular = "Fran"
-    contaFran.numeroConta = 1001
-    contaFran.setSaldo(200.0)
+    var contaFran = Conta(titular = "Fran", numeroConta = 1001)
+    contaFran.deposita(200.0)
 
     println(contaAlex.titular)
     println(contaAlex.numeroConta)
-    println(contaAlex.getSaldo())
+    println(contaAlex.saldo)
     println()
 
     println(contaFran.titular)
     println(contaFran.numeroConta)
-    println(contaFran.getSaldo())
+    println(contaFran.saldo)
 
-//    println("Depositando na conta do Alex")
-//    contaAlex.deposita(50.0)
-//    println(contaAlex.getSaldo())
-//
-//    println("Depositando na conta da Fran")
-//    contaFran.deposita(100.0)
-//    println(contaFran.getSaldo())
-//
-//    println("Sacando na conta do Alex")
-//    contaAlex.saca(150.0)
-//    println(contaAlex.getSaldo())
-//
-//    println("Sacando na conta da Fran")
-//    contaFran.saca(50.0)
-//    println(contaFran.getSaldo())
-//
-//    println("Transferindo para a conta do Alex")
-//    if (contaFran.transfere(300.0, contaAlex)) {
-//        println("Transferência sucedida")
-//    } else {
-//        println("Transferência mal sucedida")
-//    }
-//
-//    println(contaFran.getSaldo())
-//    println(contaAlex.getSaldo())
+    println("Depositando na conta do Alex")
+    contaAlex.deposita(50.0)
+    println(contaAlex.saldo)
+
+    println("Depositando na conta da Fran")
+    contaFran.deposita(100.0)
+    println(contaFran.saldo)
+
+    println("Sacando na conta do Alex")
+    contaAlex.saca(150.0)
+    println(contaAlex.saldo)
+
+    println("Sacando na conta da Fran")
+    contaFran.saca(50.0)
+    println(contaFran.saldo)
+
+    println("Transferindo para a conta do Alex")
+    if (contaFran.transfere(destino = contaAlex, valor = 300.0 )) {
+        println("Transferência sucedida")
+    } else {
+        println("Transferência mal sucedida")
+    }
+
+    println(contaFran.saldo)
+    println(contaAlex.saldo)
 }
 
-class Conta {
-    var titular = ""
-    var numeroConta = 0
-    private var saldo = 0.0
+class Conta(
+    var titular: String,
+    val numeroConta: Int
+) {
+    var saldo = 0.0
+        private set
 
     fun deposita(valor: Double) {
-        this.saldo += valor
+        if (valor > 0) {
+            this.saldo += valor
+        }
     }
 
     fun saca(valor: Double) {
@@ -70,16 +70,6 @@ class Conta {
         }
         return false
     }
-
-    fun getSaldo(): Double{
-        return saldo
-    }
-
-    fun setSaldo(valor: Double){
-        if (valor > 0){
-            saldo = valor
-        }
-    }
 }
 
 fun testaCopiasEReferencias() {
@@ -94,8 +84,7 @@ fun testaCopiasEReferencias() {
 
     //Teste de referencia
 
-    var contaJoao = Conta()
-    contaJoao.titular = "Joao"
+    var contaJoao = Conta("Joao", 1003)
     var contaMaria = contaJoao
     contaMaria.titular = "Maria"
 
