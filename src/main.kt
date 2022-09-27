@@ -48,7 +48,7 @@ fun main() {
     println("PLR: ${gui.plr}")
 
     println("Bonificação: ${gui.bonificacao()}")
-    if (fran.autentica(senha = 3000)){
+    if (gui.autentica(senha = 3000)){
         println("Autenticação concluida com sucesso")
     } else{
         println("Autenticação não concluida")
