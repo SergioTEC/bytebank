@@ -41,6 +41,12 @@ fun main() {
         plr = 200
     )
 
+    val maria = Analista(
+        nome = "Maria",
+        cpf = "789.123.234-45",
+        salario = 1500.0
+    )
+
     println()
     println("Nome: ${gui.nome}")
     println("CPF: ${gui.cpf}")
@@ -54,10 +60,17 @@ fun main() {
         println("Autenticação não concluida")
     }
 
+    println()
+    println("Nome: ${maria.nome}")
+    println("CPF: ${maria.cpf}")
+    println("Salario: ${maria.salario}")
+    println("Bonificação: ${maria.bonificacao()}")
+
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(alex)
     calculadora.registra(fran)
     calculadora.registra(gui)
+    calculadora.registra(maria)
 
     println("Valor total da bonificação: ${calculadora.total}")
 }
