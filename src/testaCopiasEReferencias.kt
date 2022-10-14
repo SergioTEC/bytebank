@@ -10,7 +10,7 @@ fun testaCopiasEReferencias() {
 
     //Teste de referencia
 
-    var contaJoao = Conta("Joao", 1003)
+    var contaJoao = ContaCorrente("Joao", 1003)
     var contaMaria = contaJoao
     contaMaria.titular = "Maria"
 

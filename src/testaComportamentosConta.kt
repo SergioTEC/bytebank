@@ -1,10 +1,10 @@
 fun testaComportamentosConta() {
 
-    var contaAlex = Conta(titular = "Alex", numeroConta = 1000)
-    contaAlex.deposita(100.0)
+    var contaAlex = ContaCorrente(titular = "Alex", numeroConta = 1000)
+    contaAlex.deposita(200.0)
 
-    var contaFran = Conta(titular = "Fran", numeroConta = 1001)
-    contaFran.deposita(200.0)
+    var contaFran = ContaPoupanca(titular = "Fran", numeroConta = 1001)
+    contaFran.deposita(500.0)
 
     println(contaAlex.titular)
     println(contaAlex.numeroConta)
@@ -24,16 +24,16 @@ fun testaComportamentosConta() {
     println(contaFran.saldo)
 
     println("Sacando na conta do Alex")
-    contaAlex.saca(150.0)
+    contaAlex.saca(valor = 150.0)
     println(contaAlex.saldo)
 
     println("Sacando na conta da Fran")
-    contaFran.saca(50.0)
+    contaFran.saca(valor = 50.0)
     println(contaFran.saldo)
 
     println("Transferindo para a conta do Alex")
     if (contaFran.transfere(destino = contaAlex, valor = 300.0)) {
-        println("Transferência sucedida")
+        println("Transferência bem sucedida")
     } else {
         println("Transferência mal sucedida")
     }
