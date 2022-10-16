@@ -36,7 +36,7 @@ fun testaFuncionarios() {
         cpf = "345.456.567-67",
         salario = 3000.0,
         senha = 3000,
-        plr = 200
+        plr = 200.0
     )
 
     val maria = Analista(
