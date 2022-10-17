@@ -17,7 +17,6 @@ fun testaContasDiferentes() {
     )
     contaSalario.deposita(100.0)
 
-
     println()
     println(contaCorrente.titular)
     println(contaCorrente.numeroConta)
