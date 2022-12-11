@@ -1,38 +1,48 @@
-import br.com.projeto.bytebank.modelo.ContaCorrente
-import br.com.projeto.bytebank.modelo.ContaPoupanca
-import br.com.projeto.bytebank.modelo.ContaSalario
+import br.com.projeto.bytebank.modelo.*
 
 fun testaContasDiferentes() {
+
+    var paulo = Cliente(nome = "Paulo", cpf = "346.122.645-66", senha = 5678, endereco = Endereco("Rua Kotlin"))
+
     val contaCorrente = ContaCorrente(
-        titular = "Paulo",
+        titular = paulo,
         numeroConta = 1001
     )
     contaCorrente.deposita(200.0)
 
+    println("titular ${contaCorrente.titular}")
+    println("nome do titular: ${contaCorrente.titular.nome}")
+    println("cpf do titular: ${contaCorrente.titular.cpf}")
+    println("endereco do titular: ${contaCorrente.titular.endereco.logradouro}")
+
+    var joao = Cliente(nome = "Joao", cpf = "236.142.655-96", senha = 2345)
+
     val contaPoupanca = ContaPoupanca(
-        titular = "Joao",
+        titular = joao,
         numeroConta = 1002
     )
     contaPoupanca.deposita(100.0)
 
+    var gui = Cliente(nome = "Gui", cpf = "146.678.853-65", senha = 2336)
+
     val contaSalario = ContaSalario(
-        titular = "Gui",
+        titular = gui,
         numeroConta = 1003
     )
     contaSalario.deposita(100.0)
 
     println()
-    println(contaCorrente.titular)
+    println(contaCorrente.titular.nome)
     println(contaCorrente.numeroConta)
     println(contaCorrente.saldo)
 
     println()
-    println(contaPoupanca.titular)
+    println(contaPoupanca.titular.nome)
     println(contaPoupanca.numeroConta)
     println(contaPoupanca.saldo)
 
     println()
-    println(contaSalario.titular)
+    println(contaSalario.titular.nome)
     println(contaSalario.numeroConta)
     println(contaSalario.saldo)
 

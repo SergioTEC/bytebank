@@ -1,12 +1,17 @@
+import br.com.projeto.bytebank.modelo.Cliente
 import br.com.projeto.bytebank.modelo.ContaCorrente
 import br.com.projeto.bytebank.modelo.ContaPoupanca
 
 fun testaComportamentosConta() {
 
-    var contaAlex = ContaCorrente(titular = "Alex", numeroConta = 1000)
+    var alex = Cliente(nome = "Alex", cpf = "123.345.678-44", senha = 1234)
+
+    var contaAlex = ContaCorrente(titular = alex, numeroConta = 1000)
     contaAlex.deposita(200.0)
 
-    var contaFran = ContaPoupanca(titular = "Fran", numeroConta = 1001)
+    var fran = Cliente(nome = "Fran", cpf = "234.456.567-11", senha = 2345)
+
+    var contaFran = ContaPoupanca(titular = fran, numeroConta = 1001)
     contaFran.deposita(500.0)
 
     println(contaAlex.titular)
