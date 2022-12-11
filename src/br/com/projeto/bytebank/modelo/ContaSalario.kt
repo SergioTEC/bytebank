@@ -1,7 +1,9 @@
-class ContaPoupanca(
+package br.com.projeto.bytebank.modelo
+
+class ContaSalario(
     titular: String,
     numeroConta: Int
-) : ContaTransferivel(
+) : Conta(
     titular = titular,
     numeroConta = numeroConta
 ) {

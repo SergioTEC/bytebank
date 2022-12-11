@@ -1,3 +1,5 @@
+import br.com.projeto.bytebank.modelo.ContaCorrente
+
 fun testaCopiasEReferencias() {
     //Teste de copia
 
@@ -14,8 +16,8 @@ fun testaCopiasEReferencias() {
     var contaMaria = contaJoao
     contaMaria.titular = "Maria"
 
-    println("Conta Joao: ${contaJoao.titular}")
-    println("Conta Maria: ${contaMaria.titular}")
+    println("br.com.projeto.bytebank.modelo.Conta Joao: ${contaJoao.titular}")
+    println("br.com.projeto.bytebank.modelo.Conta Maria: ${contaMaria.titular}")
 
     println(contaJoao)
     println(contaMaria)

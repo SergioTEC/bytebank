@@ -1,3 +1,7 @@
+import br.com.projeto.bytebank.modelo.ContaCorrente
+import br.com.projeto.bytebank.modelo.ContaPoupanca
+import br.com.projeto.bytebank.modelo.ContaSalario
+
 fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
         titular = "Paulo",
@@ -65,7 +69,7 @@ fun testaContasDiferentes() {
     println("Saldo conta poupança: ${contaPoupanca.saldo}")
     println("Saldo conta salario: ${contaSalario.saldo}")
 
-//    Conta salario não pode transferir
+//    br.com.projeto.bytebank.modelo.Conta salario não pode transferir
 //    println()
 //    println("Transferindo da conta salario para a conta corrente")
 //    contaSalario.transfere(valor = 20.0, contaCorrente)

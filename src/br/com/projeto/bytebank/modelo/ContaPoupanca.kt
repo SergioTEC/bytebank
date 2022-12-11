@@ -1,4 +1,6 @@
-class ContaCorrente(
+package br.com.projeto.bytebank.modelo
+
+class ContaPoupanca(
     titular: String,
     numeroConta: Int
 ) : ContaTransferivel(
@@ -6,9 +8,8 @@ class ContaCorrente(
     numeroConta = numeroConta
 ) {
     override fun saca(valor: Double) {
-        val valorComTaxa = valor + 0.1
-        if (this.saldo >= valorComTaxa) {
-            this.saldo -= valorComTaxa
+        if (this.saldo >= valor) {
+            this.saldo -= valor
         }
     }
 }

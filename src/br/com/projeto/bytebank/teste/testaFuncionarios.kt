@@ -1,3 +1,5 @@
+import br.com.projeto.bytebank.modelo.*
+
 fun testaFuncionarios() {
     val alex = Analista(
         nome = "Alex",

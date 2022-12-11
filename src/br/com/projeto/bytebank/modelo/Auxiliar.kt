@@ -1,4 +1,6 @@
-class Analista(
+package br.com.projeto.bytebank.modelo
+
+class Auxiliar(
     nome: String,
     cpf: String,
     salario: Double,
@@ -8,6 +10,6 @@ class Analista(
     salario = salario
 ){
     override fun bonificacao(): Double {
-        return salario * 0.1
+        return salario * 0.05
     }
 }

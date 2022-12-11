@@ -1,3 +1,6 @@
+import br.com.projeto.bytebank.modelo.ContaCorrente
+import br.com.projeto.bytebank.modelo.ContaPoupanca
+
 fun testaComportamentosConta() {
 
     var contaAlex = ContaCorrente(titular = "Alex", numeroConta = 1000)

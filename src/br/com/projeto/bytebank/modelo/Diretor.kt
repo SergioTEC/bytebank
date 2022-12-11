@@ -1,3 +1,5 @@
+package br.com.projeto.bytebank.modelo
+
 class Diretor(
     nome: String,
     cpf: String,

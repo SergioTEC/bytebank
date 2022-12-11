@@ -1,15 +1,15 @@
-class Gerente(
+package br.com.projeto.bytebank.modelo
+
+class Analista(
     nome: String,
     cpf: String,
     salario: Double,
-    senha: Int
-) : FuncionarioAdmin(
+) : Funcionario(
     nome = nome,
     cpf = cpf,
-    salario = salario,
-    senha = senha
-) {
+    salario = salario
+){
     override fun bonificacao(): Double {
-        return salario
+        return salario * 0.1
     }
 }

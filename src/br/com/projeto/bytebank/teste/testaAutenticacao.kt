@@ -1,3 +1,8 @@
+import br.com.projeto.bytebank.modelo.Cliente
+import br.com.projeto.bytebank.modelo.Diretor
+import br.com.projeto.bytebank.modelo.Gerente
+import br.com.projeto.bytebank.modelo.SistemaInterno
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         nome = "Alex",
