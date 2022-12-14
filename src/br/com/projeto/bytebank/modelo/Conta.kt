@@ -1,8 +1,5 @@
 package br.com.projeto.bytebank.modelo
 
-var totalDeContas = 0
-    private set
-
 abstract class Conta(
     var titular: Cliente,
     val numeroConta: Int
@@ -10,7 +7,7 @@ abstract class Conta(
     var saldo = 0.0
         protected set
 
-    companion object{
+    companion object {
         var total = 0
             private set
     }

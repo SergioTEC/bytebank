@@ -1,22 +1,15 @@
-import br.com.projeto.bytebank.modelo.*
+import br.com.projeto.bytebank.modelo.Endereco
 
 fun main() {
-    testaContasDiferentes()
 
-    val fran = object: Autenticavel {
-        val nome: String = "Fran"
-        val cpf: String = "111.111.111-22"
-        val senha: Int = 1000
+    val endereco = Endereco(logradouro = "Rua São Jõao", numero = 100, cep = "10000-222")
+    val enderecoNovo = Endereco(logradouro = "Rua São Jõao", numero = 100, cep = "10000-222")
 
-        override fun autentica(senha: Int) = this.senha == senha
-    }
 
-    val sistemaInterno = SistemaInterno()
-    sistemaInterno.entra(fran, 1000)
+    println(endereco.equals(enderecoNovo))
 
-    println("Nome do cliente ${fran.nome}")
+    println(endereco.hashCode())
+    println(enderecoNovo.hashCode())
 
-    val alex = Cliente(nome = "Alex", cpf = "", senha = 1)
-    val contaPoupanca = ContaPoupanca(titular = alex, numeroConta = 1000)
-    println("Total de contas: ${Conta.total}")
+    println(endereco)
 }
