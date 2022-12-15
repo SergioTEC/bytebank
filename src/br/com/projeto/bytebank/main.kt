@@ -1,15 +1,24 @@
 import br.com.projeto.bytebank.modelo.Endereco
 
 fun main() {
+    println("início main")
+    funcao1()
+    println("fim main")
+}
 
-    val endereco = Endereco(logradouro = "Rua São Jõao", numero = 100, cep = "10000-222")
-    val enderecoNovo = Endereco(logradouro = "Rua São Jõao", numero = 100, cep = "10000-222")
+fun funcao1(){
+    println("início funcao1")
+    funcao2()
+    println("fim funcao1")
+}
 
-
-    println(endereco.equals(enderecoNovo))
-
-    println(endereco.hashCode())
-    println(enderecoNovo.hashCode())
-
-    println(endereco)
+fun funcao2() {
+    println("início funcao2")
+    for (i in 1..5){
+        println(i)
+        //Simulando uma exception
+        val endereco = Any()
+        endereco as Endereco
+    }
+    println("fim funcao2")
 }
