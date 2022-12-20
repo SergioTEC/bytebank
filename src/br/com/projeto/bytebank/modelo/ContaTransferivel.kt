@@ -1,5 +1,7 @@
 package br.com.projeto.bytebank.modelo
 
+import br.com.projeto.bytebank.exception.SaldoInsuficienteException
+
 abstract class ContaTransferivel(
     titular: Cliente,
     numeroConta: Int
@@ -8,12 +10,12 @@ abstract class ContaTransferivel(
     numeroConta = numeroConta
 ) {
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
+    fun transfere(valor: Double, destino: Conta){
         if (saldo >= valor) {
             saldo -= valor
             destino.deposita(valor)
-            return true
+        } else {
+            return throw SaldoInsuficienteException()
         }
-        return false
     }
 }

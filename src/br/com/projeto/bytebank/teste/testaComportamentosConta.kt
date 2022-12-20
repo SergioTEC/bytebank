@@ -1,3 +1,4 @@
+import br.com.projeto.bytebank.exception.SaldoInsuficienteException
 import br.com.projeto.bytebank.modelo.Cliente
 import br.com.projeto.bytebank.modelo.ContaCorrente
 import br.com.projeto.bytebank.modelo.ContaPoupanca
@@ -40,12 +41,16 @@ fun testaComportamentosConta() {
     println(contaFran.saldo)
 
     println("Transferindo para a conta do Alex")
-    if (contaFran.transfere(destino = contaAlex, valor = 300.0)) {
+
+    try {
+        contaFran.transfere(destino = contaAlex, valor = 300.0)
         println("Transferência bem sucedida")
-    } else {
+    } catch (e: SaldoInsuficienteException) {
         println("Transferência mal sucedida")
+        println("Saldo insuficiente")
+        e.printStackTrace()
     }
 
-    println(contaFran.saldo)
-    println(contaAlex.saldo)
+    println("Saldo Fran: ${contaFran.saldo}")
+    println("Saldo Alex: ${contaAlex.saldo}")
 }
