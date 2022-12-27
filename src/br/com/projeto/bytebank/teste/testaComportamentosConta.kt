@@ -13,7 +13,7 @@ fun testaComportamentosConta() {
     var fran = Cliente(nome = "Fran", cpf = "234.456.567-11", senha = 2345)
 
     var contaFran = ContaPoupanca(titular = fran, numeroConta = 1001)
-    contaFran.deposita(500.0)
+    contaFran.deposita(100.0)
 
     println(contaAlex.titular)
     println(contaAlex.numeroConta)

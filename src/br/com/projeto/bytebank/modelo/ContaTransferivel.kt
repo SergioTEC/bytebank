@@ -15,7 +15,7 @@ abstract class ContaTransferivel(
             saldo -= valor
             destino.deposita(valor)
         } else {
-            return throw SaldoInsuficienteException()
+            return throw SaldoInsuficienteException(mensagem = "Saldo insuficiente, saldo atual: ${saldo}, valor a ser sacado: ${valor}")
         }
     }
 }
